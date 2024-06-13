@@ -24,31 +24,25 @@ namespace Hurl.BrowserSelector.Globals
             }
         }
 
-        private static UriGlobal _instance = null;
+        private static UriGlobal? _instance;
 
         public static string Value
         {
             get
             {
-                if (_instance == null)
-                {
-                    _instance = new UriGlobal(string.Empty);
-                }
+                _instance ??= new UriGlobal(string.Empty);
                 return _instance.Url;
             }
             set
             {
-                if (_instance == null)
-                {
-                    _instance = new UriGlobal(value);
-                }
+                _instance ??= new UriGlobal(value);
                 _instance.Url = value;
             }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        protected void OnPropertyChanged([CallerMemberName] string name = null)
+        protected void OnPropertyChanged([CallerMemberName] string? name = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }

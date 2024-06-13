@@ -26,7 +26,7 @@ public partial class RulesetAccordion : UserControl
 
     private void EditButton_Click(object sender, RoutedEventArgs e)
     {
-        var ruleset = ((Ruleset)DataContext);
+        var ruleset = (Ruleset)DataContext;
 
         var ViewModel = new EditRulesetViewModel(ruleset);
         var window = new EditRuleset(ViewModel, UpdateRuleset) { Owner = Window.GetWindow(this) };
@@ -45,7 +45,7 @@ public partial class RulesetAccordion : UserControl
 
     private void UpButton_Click(object sender, RoutedEventArgs e)
     {
-        var ruleset = ((Ruleset)DataContext);
+        var ruleset = (Ruleset)DataContext;
         var index = _index;
         if (index < 1)
         {
@@ -63,7 +63,7 @@ public partial class RulesetAccordion : UserControl
 
     private void DownButton_Click(object sender, RoutedEventArgs e)
     {
-        var ruleset = ((Ruleset)DataContext);
+        var ruleset = (Ruleset)DataContext;
         var index = _index;
         if (index >= SettingsState.Rulesets.Count - 1)
         {
@@ -71,9 +71,7 @@ public partial class RulesetAccordion : UserControl
         }
         else
         {
-            var temp = SettingsState.Rulesets[index];
-            SettingsState.Rulesets[index] = SettingsState.Rulesets[index + 1];
-            SettingsState.Rulesets[index + 1] = temp;
+            (SettingsState.Rulesets[index + 1], SettingsState.Rulesets[index]) = (SettingsState.Rulesets[index], SettingsState.Rulesets[index + 1]);
             SettingsState.Update();
             Refresh?.Invoke();
         }
