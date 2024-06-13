@@ -26,16 +26,19 @@
         <wpfui:TitleBar Title="Ruleset Manager - Hurl" />
 
         <ScrollViewer Grid.Row="1">
-            <StackPanel x:Name="_rulesetsList" Margin="16" />
+            <StackPanel x:Name="_rulesetsList" Margin="16,0,16,8" />
         </ScrollViewer>
 
         <Border Grid.Row="2" Style="{DynamicResource BottomBarStyle}">
-            <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
-                <wpfui:Button Click="CreateButton_Click">
+            <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
+                <wpfui:Button MinWidth="120" Click="CreateButton_Click">
                     Create
                 </wpfui:Button>
 
-                <wpfui:Button Margin="8,0,0,0" Click="TestButton_Click">
+                <wpfui:Button
+                    MinWidth="120"
+                    Margin="8,0,0,0"
+                    Click="TestButton_Click">
                     Test
                 </wpfui:Button>
             </StackPanel>

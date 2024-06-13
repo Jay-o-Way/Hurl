@@ -35,7 +35,7 @@
             ShowMaximize="False" />
 
         <wpfui:TextBox
-            x:Name="linkpreview"
+            x:Name="UrlTextBox"
             Grid.Row="1"
             Margin="16,8"
             HorizontalAlignment="Stretch"
@@ -44,38 +44,38 @@
         <vs:BrowsersList Grid.Row="2" Margin="16,8" />
 
         <Border Grid.Row="3" Style="{DynamicResource BottomBarStyle}">
-            <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+            <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
                 <wpfui:Button
+                    MinWidth="120"
                     Margin="0,0,8,0"
                     VerticalAlignment="Stretch"
                     Click="ManageBtn_Click"
-                    FontSize="16"
-                    ToolTip="Manage rules">
+                    FontSize="16">
                     <wpfui:Button.Icon>
                         <wpfui:SymbolIcon Symbol="Edit16" />
                     </wpfui:Button.Icon>
-                    <wpfui:Button.Content>
-                        Rules
-                    </wpfui:Button.Content>
+                    Manage rules
                 </wpfui:Button>
                 <wpfui:Button
+                    MinWidth="120"
                     Margin="0,0,8,0"
                     VerticalAlignment="Stretch"
                     Click="BtnTimed_Click"
-                    FontSize="16"
-                    ToolTip="Timed Default">
+                    FontSize="16">
                     <wpfui:Button.Icon>
                         <wpfui:SymbolIcon Symbol="Timer16" />
                     </wpfui:Button.Icon>
+                    Timed Default
                 </wpfui:Button>
                 <wpfui:Button
+                    MinWidth="120"
                     VerticalAlignment="Stretch"
                     Click="SettingsBtn_Click"
-                    FontSize="16"
-                    ToolTip="Settings">
+                    FontSize="16">
                     <wpfui:Button.Icon>
                         <wpfui:SymbolIcon Symbol="Settings16" />
                     </wpfui:Button.Icon>
+                    Settings
                 </wpfui:Button>
             </StackPanel>
         </Border>
@@ -104,10 +104,15 @@
                             <wpfui:SymbolIcon Symbol="ArrowClockwise16" />
                         </wpfui:MenuItem.Icon>
                     </wpfui:MenuItem>
+                    <!--  TO-DO: find a good [X] icon  -->
                     <wpfui:MenuItem
                         Click="TrayMenuItem_OnClick"
                         Header="Close"
-                        Tag="exit" />
+                        Tag="exit">
+                        <!--<wpfui:MenuItem.Icon>
+                            <wpfui:FontIcon FontFamily="{StaticResource SymbolThemeFontFamily}" Glyph="&#xE8BB;" />
+                        </wpfui:MenuItem.Icon>-->
+                    </wpfui:MenuItem>
                 </ContextMenu>
             </tray:NotifyIcon.Menu>
         </tray:NotifyIcon>

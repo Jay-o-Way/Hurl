@@ -29,14 +29,23 @@
             ShowMinimize="False" />
 
         <ScrollViewer Grid.Row="1">
-            <StackPanel Margin="16">
-                <wpfui:CardControl Header="Ruleset Title">
-                    <wpfui:TextBox
-                        x:Name="RuleNameInput"
-                        Width="240"
-                        PlaceholderText="Title"
-                        Text="{Binding Name, Mode=TwoWay}" />
-                </wpfui:CardControl>
+            <StackPanel Margin="16,0,16,16">
+                <wpfui:Card>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="240" />
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock VerticalAlignment="Center" Text="Rule name" />
+                        <wpfui:TextBox
+                            x:Name="RuleNameInput"
+                            Grid.Column="1"
+                            Width="240"
+                            PlaceholderText="Title"
+                            Text="{Binding Name, Mode=TwoWay}" />
+                    </Grid>
+                </wpfui:Card>
 
                 <wpfui:Card Margin="0,8,0,0">
                     <Grid>
@@ -49,7 +58,7 @@
                             <ColumnDefinition Width="240" />
                         </Grid.ColumnDefinitions>
 
-                        <TextBlock VerticalAlignment="Center" Text="Browser Name" />
+                        <TextBlock VerticalAlignment="Center" Text="Browser" />
                         <ComboBox
                             x:Name="TargetBrowser"
                             Grid.Column="1"
@@ -60,7 +69,7 @@
                         <TextBlock
                             Grid.Row="1"
                             VerticalAlignment="Center"
-                            Text="Alternate Launch:" />
+                            Text="Alternative launch" />
                         <ComboBox
                             x:Name="TargetAltLaunch"
                             Grid.Row="1"
@@ -112,6 +121,7 @@
                         Info
                     </wpfui:Button>
                     <wpfui:Button
+                        MinWidth="120"
                         HorizontalAlignment="Right"
                         Appearance="Primary"
                         Click="RuleAddButton_Click"
@@ -164,22 +174,18 @@
         </ScrollViewer>
 
         <Border Grid.Row="2" Style="{DynamicResource BottomBarStyle}">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto" />
-                    <ColumnDefinition />
-                    <ColumnDefinition Width="Auto" />
-                </Grid.ColumnDefinitions>
-                <wpfui:Button Click="CancelButton_Click">
-                    Cancel
-                </wpfui:Button>
+            <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
                 <wpfui:Button
-                    Grid.Column="2"
+                    MinWidth="120"
+                    Margin="0,0,8,0"
                     Appearance="Primary"
                     Click="SaveButton_Click">
                     Save
                 </wpfui:Button>
-            </Grid>
+                <wpfui:Button MinWidth="120" Click="CancelButton_Click">
+                    Cancel
+                </wpfui:Button>
+            </StackPanel>
         </Border>
 
     </Grid>

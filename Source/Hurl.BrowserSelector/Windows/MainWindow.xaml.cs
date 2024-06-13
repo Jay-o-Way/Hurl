@@ -15,7 +15,7 @@ public partial class MainWindow : FluentWindow
 {
     public MainWindow()
     {
-        _ = Globals.SettingsGlobal.Value;
+        _ = SettingsGlobal.Value;
         InitializeComponent();
         SystemThemeWatcher.Watch(this);
     }
@@ -46,7 +46,7 @@ public partial class MainWindow : FluentWindow
             }
         }
 
-        linkpreview.Text = string.IsNullOrEmpty(UriGlobal.Value) ? string.Empty : UriGlobal.Value;
+        UrlTextBox.Text = string.IsNullOrEmpty(UriGlobal.Value) ? string.Empty : UriGlobal.Value;
     }
 
     //private void Window_KeyEvents(object sender, KeyEventArgs e)
@@ -78,7 +78,7 @@ public partial class MainWindow : FluentWindow
         Hide();
     }
 
-    private void ShowWindow()
+    public void ShowWindow()
     {
         PositionWindowUnderTheMouse();
         Show();

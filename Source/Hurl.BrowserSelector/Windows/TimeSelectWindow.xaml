@@ -29,38 +29,54 @@
             ShowMinimize="False" />
 
         <StackPanel Grid.Row="1" Margin="16,0">
-            <wpfui:CardControl Header="Time (minutes)" Icon="Clock24">
-                <wpfui:NumberBox
-                    x:Name="TimeBox"
-                    Maximum="300"
-                    Minimum="0"
-                    Value="10" />
-            </wpfui:CardControl>
+            <wpfui:Card>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="240" />
+                    </Grid.ColumnDefinitions>
 
-            <wpfui:CardControl
-                Margin="0,8,0,0"
-                Header="Browser"
-                Icon="Globe24">
-                <ComboBox x:Name="BrowserBox" ItemsSource="{Binding}" />
-            </wpfui:CardControl>
+                    <TextBlock VerticalAlignment="Center" Text="Time (minutes)" />
+                    <wpfui:NumberBox
+                        x:Name="TimeBox"
+                        Grid.Column="1"
+                        Maximum="300"
+                        Minimum="0"
+                        Value="10" />
+                </Grid>
+            </wpfui:Card>
+
+            <wpfui:Card Margin="0,8,0,0">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="240" />
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock VerticalAlignment="Center" Text="Browser" />
+                    <ComboBox
+                        x:Name="BrowserBox"
+                        Grid.Column="1"
+                        ItemsSource="{Binding}" />
+                </Grid>
+            </wpfui:Card>
 
         </StackPanel>
 
         <Border Grid.Row="2" Style="{DynamicResource BottomBarStyle}">
-
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="Auto" />
-                </Grid.ColumnDefinitions>
-                <wpfui:Button Click="CancelBtn_Click" Content="Cancel" />
+            <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
                 <wpfui:Button
                     Grid.Column="2"
+                    MinWidth="120"
+                    Margin="0,0,8,0"
                     Appearance="Primary"
                     Click="SetBtn_Click"
                     Content="Set" />
-            </Grid>
+                <wpfui:Button
+                    MinWidth="120"
+                    Click="CancelBtn_Click"
+                    Content="Cancel" />
+            </StackPanel>
         </Border>
     </Grid>
 </wpfui:FluentWindow>

@@ -86,17 +86,12 @@
                             AcceptsReturn="True" />
                     </Grid>
 
-                    <Grid Margin="0,12,0,0">
-                        <wpfui:Button
-                            HorizontalAlignment="Left"
-                            Click="CopyRuleButton_Click"
-                            FontSize="16"
-                            Icon="{wpfui:SymbolIcon Copy16}"
-                            ToolTipService.ToolTip="Copy Rule" />
-                        <wpfui:Button HorizontalAlignment="Right" Click="TestRuleButton_Click">
-                            Test with Rule
-                        </wpfui:Button>
-                    </Grid>
+                    <wpfui:Button
+                        Margin="0,12,0,0"
+                        HorizontalAlignment="Right"
+                        Click="TestRuleButton_Click">
+                        Test with Rule
+                    </wpfui:Button>
                 </StackPanel>
             </wpfui:Card>
 
