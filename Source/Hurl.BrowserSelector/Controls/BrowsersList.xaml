@@ -55,6 +55,7 @@
                     BorderBrush="Transparent"
                     Click="BrowserButton_Click"
                     Tag="{Binding}"
+                    AutomationProperties.Name="{Binding Path=Name}"
                     ToolTip="{Binding Path=Name}">
                     <StackPanel>
                         <Image

@@ -139,7 +139,7 @@
                     <ItemsControl x:Name="_RulesListControl" ItemsSource="{Binding Rules, Mode=TwoWay}">
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
-                                <wpfui:Card Padding="4">
+                                <wpfui:Card Padding="4" AutomationProperties.Name="{Binding Path=RuleContent}">
                                     <Grid>
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="Auto" />
@@ -160,6 +160,7 @@
                                             Grid.Column="2"
                                             Margin="4"
                                             VerticalAlignment="Center"
+                                            AutomationProperties.Name="Delete"
                                             Click="RuleRemoveButton_Click"
                                             FontSize="16"
                                             Foreground="{wpfui:ThemeResource SystemFillColorCriticalBrush}"
