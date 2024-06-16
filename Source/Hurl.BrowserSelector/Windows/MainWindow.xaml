@@ -39,45 +39,52 @@
             Grid.Row="1"
             Margin="16,8"
             HorizontalAlignment="Stretch"
+            Background="Transparent"
             PlaceholderText="Enter URL" />
 
         <vs:BrowsersList Grid.Row="2" Margin="16,8" />
 
         <Border Grid.Row="3" Style="{DynamicResource BottomBarStyle}">
-            <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0" Orientation="Horizontal">
+                    <wpfui:Button
+                        MinWidth="120"
+                        Margin="0,0,8,0"
+                        VerticalAlignment="Stretch"
+                        Click="ManageBtn_Click"
+                        FontSize="16">
+                        <wpfui:Button.Icon>
+                            <wpfui:SymbolIcon Symbol="Edit16" />
+                        </wpfui:Button.Icon>
+                        Manage rules
+                    </wpfui:Button>
+                    <wpfui:Button
+                        MinWidth="120"
+                        VerticalAlignment="Stretch"
+                        Click="BtnTimed_Click"
+                        FontSize="16">
+                        <wpfui:Button.Icon>
+                            <wpfui:SymbolIcon Symbol="Timer16" />
+                        </wpfui:Button.Icon>
+                        Timed Default
+                    </wpfui:Button>
+                </StackPanel>
                 <wpfui:Button
-                    MinWidth="120"
-                    Margin="0,0,8,0"
-                    VerticalAlignment="Stretch"
-                    Click="ManageBtn_Click"
-                    FontSize="16">
-                    <wpfui:Button.Icon>
-                        <wpfui:SymbolIcon Symbol="Edit16" />
-                    </wpfui:Button.Icon>
-                    Manage rules
-                </wpfui:Button>
-                <wpfui:Button
-                    MinWidth="120"
-                    Margin="0,0,8,0"
-                    VerticalAlignment="Stretch"
-                    Click="BtnTimed_Click"
-                    FontSize="16">
-                    <wpfui:Button.Icon>
-                        <wpfui:SymbolIcon Symbol="Timer16" />
-                    </wpfui:Button.Icon>
-                    Timed Default
-                </wpfui:Button>
-                <wpfui:Button
-                    MinWidth="120"
+                    Grid.Column="2"
                     VerticalAlignment="Stretch"
                     Click="SettingsBtn_Click"
-                    FontSize="16">
+                    FontSize="16"
+                    ToolTip="Settings">
                     <wpfui:Button.Icon>
                         <wpfui:SymbolIcon Symbol="Settings16" />
                     </wpfui:Button.Icon>
-                    Settings
                 </wpfui:Button>
-            </StackPanel>
+            </Grid>
         </Border>
 
         <tray:NotifyIcon
@@ -104,14 +111,13 @@
                             <wpfui:SymbolIcon Symbol="ArrowClockwise16" />
                         </wpfui:MenuItem.Icon>
                     </wpfui:MenuItem>
-                    <!--  TO-DO: find a good [X] icon  -->
                     <wpfui:MenuItem
                         Click="TrayMenuItem_OnClick"
                         Header="Close"
                         Tag="exit">
-                        <!--<wpfui:MenuItem.Icon>
-                            <wpfui:FontIcon FontFamily="{StaticResource SymbolThemeFontFamily}" Glyph="&#xE8BB;" />
-                        </wpfui:MenuItem.Icon>-->
+                        <wpfui:MenuItem.Icon>
+                            <wpfui:SymbolIcon Symbol="Dismiss16" />
+                        </wpfui:MenuItem.Icon>
                     </wpfui:MenuItem>
                 </ContextMenu>
             </tray:NotifyIcon.Menu>
