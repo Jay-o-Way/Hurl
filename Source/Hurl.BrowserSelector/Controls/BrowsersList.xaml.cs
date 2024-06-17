@@ -74,6 +74,7 @@ namespace Hurl.BrowserSelector.Controls
         public static void OpenLink(Browser clickedbrowser)
         {
             var browser = clickedbrowser;
+            // ideally, we would use UrlTextBox.Text here
             var Link = UriGlobal.Value;
             //Process.Start(browser.ExePath, "https://github.com/u-c-s" + " " + browser.LaunchArgs);
 

@@ -162,4 +162,13 @@ public partial class MainWindow : FluentWindow
         WindowState = WindowState.Minimized;
         Hide();
     }
+
+    // Use this value to give OpenLink() access to the latest data,
+    // in case user manually changes the content of the TextBox.
+    // Using UrlTextBox.Text directly in the BrowsersList control gives problems,
+    // probably because of the different namespaces.
+    private void UrlTextBox_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+    {
+        UriGlobal.Value = UrlTextBox.Text;
+    }
 }

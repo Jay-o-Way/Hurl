@@ -37,7 +37,6 @@
         <ItemsControl.ItemsPanel>
             <ItemsPanelTemplate>
                 <WrapPanel
-                    Margin="8"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     Orientation="Horizontal" />
@@ -48,35 +47,44 @@
             <DataTemplate>
                 <wpfui:Button
                     Width="128"
-                    Margin="4"
+                    Margin="4,0"
                     VerticalAlignment="Stretch"
                     VerticalContentAlignment="Top"
                     Appearance="Transparent"
+                    AutomationProperties.Name="{Binding Path=Name}"
                     BorderBrush="Transparent"
                     Click="BrowserButton_Click"
                     Tag="{Binding}"
-                    AutomationProperties.Name="{Binding Path=Name}"
                     ToolTip="{Binding Path=Name}">
-                    <StackPanel>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
                         <Image
+                            Grid.Row="0"
                             MaxWidth="64"
                             MaxHeight="64"
                             Source="{Binding Path=GetIcon}" />
                         <TextBlock Text="+" Visibility="{Binding ShowAdditionalBtn}" />
                         <wpfui:Button
                             x:Name="AdditionalBtn"
+                            Grid.Row="0"
                             HorizontalAlignment="Right"
-                            VerticalAlignment="Top"
+                            VerticalAlignment="Bottom"
                             Click="AdditionalBtn_Click"
-                            Visibility="Collapsed">
-                            <wpfui:SymbolIcon Symbol="MoreVertical16" />
+                            FontSize="16"
+                            Visibility="{Binding ShowAdditionalBtn}">
+                            <wpfui:SymbolIcon Symbol="MoreHorizontal16" />
                         </wpfui:Button>
                         <TextBlock
+                            Grid.Row="3"
                             Margin="0,12,0,0"
                             Text="{Binding Path=Name}"
                             TextAlignment="Center"
                             TextWrapping="Wrap" />
-                        <StackPanel.ContextMenu>
+                        <Grid.ContextMenu>
                             <ContextMenu ItemsSource="{Binding Path=AlternateLaunches}" Visibility="{Binding ShowAdditionalBtn}">
                                 <ContextMenu.ItemContainerStyle>
                                     <Style TargetType="MenuItem">
@@ -93,8 +101,8 @@
                                     </Style>
                                 </ContextMenu.ItemContainerStyle>
                             </ContextMenu>
-                        </StackPanel.ContextMenu>
-                    </StackPanel>
+                        </Grid.ContextMenu>
+                    </Grid>
                 </wpfui:Button>
                 <DataTemplate.Triggers>
                     <Trigger Property="IsMouseOver" Value="True">
