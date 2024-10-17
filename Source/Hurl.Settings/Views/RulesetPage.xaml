@@ -34,7 +34,7 @@
                         <FontIcon Glyph="&#xE710;" />
                     </toolkit:SettingsCard.HeaderIcon>
                     <Button
-                        Width="80"
+                        MinWidth="120"
                         Click="CreateButton_Click"
                         Style="{StaticResource AccentButtonStyle}">
                         Create
@@ -62,7 +62,6 @@
                                 <StackPanel Orientation="Horizontal">
                                     <Button
                                         Click="ViewRuleset"
-                                        Style="{StaticResource EllipsisButton}"
                                         Tag="{x:Bind Id}"
                                         ToolTipService.ToolTip="View Rules">
                                         <FontIcon Glyph="&#xE946;" />
@@ -124,7 +123,7 @@
                         <FontIcon Glyph="&#xEE92;" />
                     </toolkit:SettingsCard.HeaderIcon>
                     <Button
-                        Width="80"
+                        MinWidth="120"
                         Click="TestButton_Click"
                         Style="{StaticResource AccentButtonStyle}">
                         Test
