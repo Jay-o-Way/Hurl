@@ -1,16 +1,14 @@
 using Hurl.Settings.ViewModels;
 using Microsoft.UI.Xaml.Controls;
-using Microsoft.UI.Xaml.Navigation;
 using System;
 
 namespace Hurl.Settings.Views;
 
-public sealed partial class Settings : Page
+public sealed partial class SettingsPage : Page
 {
-    public Settings()
+    public SettingsPage()
     {
         this.InitializeComponent();
-        NavigationCacheMode = NavigationCacheMode.Required;
     }
     public SettingsViewModel ViewModel => new();
 

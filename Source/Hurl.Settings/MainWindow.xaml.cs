@@ -13,7 +13,7 @@ public sealed partial class MainWindow : Window
         this.InitializeComponent();
 
         ExtendsContentIntoTitleBar = true;
-        Title = "Hurl Settings Preview";
+        Title = "Hurl SettingsPage Preview";
 
         this.AppWindow.ResizeClient(new SizeInt32(1200, 840));
         this.AppWindow.SetIcon("internet.ico");
@@ -45,7 +45,7 @@ public sealed partial class MainWindow : Window
                 NavigationFrame.Navigate(typeof(Views.RulesetPage));
                 break;
             case "settings":
-                NavigationFrame.Navigate(typeof(Views.Settings));
+                NavigationFrame.Navigate(typeof(Views.SettingsPage));
                 break;
         }
 
