@@ -62,7 +62,7 @@
                     Header="Windows default app settings"
                     IsClickEnabled="True">
                     <toolkit:SettingsCard.HeaderIcon>
-                        <FontIcon Glyph="&#xECAA;" />
+                        <FontIcon Glyph="&#xE8A7;" />
                     </toolkit:SettingsCard.HeaderIcon>
                 </toolkit:SettingsCard>
             </StackPanel>
